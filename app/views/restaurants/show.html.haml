@@ -8,4 +8,9 @@
 	-@restaurant.reviews.each do |review|
 		%p= "Review: #{review.entry} => Score: #{review.score}"
 
-= link_to "Add Review", new_restaurant_review_path(@restaurant)
+/ = link_to "Add Review", new_restaurant_review_path(@restaurant)
+
+%a{:class => "review-link", :href => '#'} Add Review
+
+#form-container
+	= render 'shared/review_form'
