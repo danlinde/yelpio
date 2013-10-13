@@ -8,10 +8,11 @@ describe 'Restaurant page' do
 	end
 
 	it 'should display the restaurant score' do
-		pending
 		restaurant = Restaurant.create(name: 'Taste Palace')
 		score = Review.new(score: 4)
 		restaurant.reviews << score
+		visit '/restaurants'
+		click_link 'Taste Palace'
 		expect(page).to have_content '4.0'
 	end
 end
@@ -32,6 +33,13 @@ describe 'a new restaurant' do
 		click_button "Create Restaurant"
 		click_link 'Taste Palace'
 		expect(page).to have_content 'Please come for maximum taste'
+	end
+
+	it 'can be deleted' do
+		click_button "Create Restaurant"
+		click_link 'Taste Palace'
+		click_button "delete"
+		expect(page).not_to have_content 'Taste Palace'
 	end
 end
 

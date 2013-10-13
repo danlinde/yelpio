@@ -1,8 +1,8 @@
 %h2= @restaurant.name
 %p= @restaurant.description
+%p= button_to "delete", @restaurant, :method => :delete, confirm: 'Are you sure?'
 %h3 Restaurant rating:
 %p= @restaurant.composite_score
-
 
 %p
 	-@restaurant.reviews.each do |review|
