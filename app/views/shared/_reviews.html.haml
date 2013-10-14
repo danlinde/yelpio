@@ -1,0 +1,3 @@
+%p
+	-@restaurant.reviews.each do |review|
+		%p= "Review: #{review.entry} => Score: #{review.score}"

@@ -4,9 +4,11 @@
 %h3 Restaurant rating:
 %p= @restaurant.composite_score
 
-%p
-	-@restaurant.reviews.each do |review|
-		%p= "Review: #{review.entry} => Score: #{review.score}"
+#reviews= render 'shared/reviews'
+
+/ %p
+/ 	-@restaurant.reviews.each do |review|
+/ 		%p= "Review: #{review.entry} => Score: #{review.score}"
 
 / = link_to "Add Review", new_restaurant_review_path(@restaurant)
 
